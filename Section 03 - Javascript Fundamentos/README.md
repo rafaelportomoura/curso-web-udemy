@@ -1,10 +1,8 @@
-Índice
+# Índice
 
+- [Índice](#índice)
 - [Comentários de Códigos](#comentários-de-códigos)
 - [O Básico de Var , Let e Const](#o-básico-de-var--let-e-const)
-  - [Var](#var)
-  - [Let](#let)
-  - [Const](#const)
 - [Tipagem Fraca](#tipagem-fraca)
 - [Tipos em JavaScript: Number](#tipos-em-javascript-number)
 - [Number: Alguns Cuidados](#number-alguns-cuidados)
@@ -12,8 +10,34 @@
 - [Tipos em JavaScript: String](#tipos-em-javascript-string)
 - [Usando Template Strings](#usando-template-strings)
 - [Tipos em JavaScript: Boolean](#tipos-em-javascript-boolean)
+- [Tipos em JavaScript: Array](#tipos-em-javascript-array)
+- [Tipos em JavaScript: Object](#tipos-em-javascript-object)
+- [Entendo o Null & Undefined](#entendo-o-null--undefined)
+- [Quase Tudo é Função!!!](#quase-tudo-é-função)
+- [Exemplos Básicos de Funções #01](#exemplos-básicos-de-funções-01)
+- [Exemplos Básicos de Funções #02](#exemplos-básicos-de-funções-02)
+- [Declaração de Variáveis Com Var #01](#declaração-de-variáveis-com-var-01)
+- [Declaração de Variáveis Com Var #02](#declaração-de-variáveis-com-var-02)
+- [Declaração de Variáveis Com Let](#declaração-de-variáveis-com-let)
+- [Usando Var em Loop #01](#usando-var-em-loop-01)
+- [Usando Let em Loop #01](#usando-let-em-loop-01)
+- [Usando Var em Loop #02](#usando-var-em-loop-02)
+- [Usando Let em Loop #02](#usando-let-em-loop-02)
+- [Entendendo o Hoisting](#entendendo-o-hoisting)
+- [Função Vs Objeto](#função-vs-objeto)
+- [Par Nome/Valor](#par-nomevalor)
+- [Notação Ponto](#notação-ponto)
+- [Operadores: Atribuição](#operadores-atribuição)
+- [Operadores: Destructuring #01](#operadores-destructuring-01)
+- [Operadores: Destructuring #02](#operadores-destructuring-02)
+- [Operadores: Destructuring #03](#operadores-destructuring-03)
+- [Operadores: Destructuring #04](#operadores-destructuring-04)
+- [Operadores: Aritméticos](#operadores-aritméticos)
+- [Operadores: Relacionais](#operadores-relacionais)
 
 # Comentários de Códigos
+
+[*voltar ao indice*](#índice)
 
 Comentar uma linha
 
@@ -34,24 +58,28 @@ Colocar bons nomes em variáveis
 
 # O Básico de Var , Let e Const
 
-## Var
+[*voltar ao indice*](#índice)
 
-A palavra reservada Var, **permite** que uma variável seja declarada mais de uma vez dentro do mesmo escopo. Forma **mais antiga**.
+**Var**
+
+A palavra reservada Var, **permite** que uma variável seja declarada mais de uma vez dentro do mesmo escopo. Forma **mais antiga**.  
+Var tem escopo global e de função.  
 
 ```js
 var a = 1;
 var a = 10;
 ```
 
-## Let
+**Let**
 
-Forma **mais moderna** de se criar as variáveis. O let, diferentemente do var, **não permite** que uma variável seja declarada mais de uma vez dentro do mesmo escopo
+Forma **mais moderna** de se criar as variáveis. O let, diferentemente do var, **não permite** que uma variável seja declarada mais de uma vez dentro do mesmo escopo  
+Let tem escopo global, de função e de bloco
 
 ```js
 let b = 2;
 ```
 
-## Const
+**Const**
 
 Usado para declarar **constantes**, variáveis imutáveis.
 
@@ -60,6 +88,8 @@ const c = 3;
 ```
 
 # Tipagem Fraca
+
+[*voltar ao indice*](#índice)
 
 Javascript é uma linguagem com **tipagem fraca**, ou seja, suas variáveis tem tipagem dinâmica. Para saber o tipo de uma variável usasse `typeof variavel`
 
@@ -95,7 +125,7 @@ Symbols são novos no JavaScript ECMAScript edição 6. Um Symbol é um valor pr
 
 **Objetos**
 
-No JavaScript, obejtos podem ser vistos como uma coleção de propriedades. Com o object literal syntax, um conjunto limitado de propriedades podem ser inicializados; a partir daí propriedades podem ser adicionadas e removidas. Estas propriedades podem assumir valores de qualquer tipo, incluindo outros objetos, o que permite construir estruturas de dados mais complexas. Propriedades são identificadas usando valores chave. Um valor chave pode ser uma String ou um valor Symbol.
+No JavaScript, objetos podem ser vistos como uma coleção de propriedades. Com o object literal syntax, um conjunto limitado de propriedades podem ser inicializados; a partir daí propriedades podem ser adicionadas e removidas. Estas propriedades podem assumir valores de qualquer tipo, incluindo outros objetos, o que permite construir estruturas de dados mais complexas. Propriedades são identificadas usando valores chave. Um valor chave pode ser uma String ou um valor Symbol.
 
 ```js
 let qualquer = 'Legal';
@@ -112,6 +142,8 @@ let pqp = false; // Produto Químico Perigoso
 ```
 
 # Tipos em JavaScript: Number
+
+[*voltar ao indice*](#índice)
 
 ```js
 const peso1 = 1.1;
@@ -144,6 +176,8 @@ console.log(typeof Number)
 
 # Number: Alguns Cuidados
 
+[*voltar ao indice*](#índice)
+
 ```js
 console.log(7 / 0)
 // Infinity
@@ -166,6 +200,8 @@ console.log((10.345).toFixed(2))
 
 # Usando Math
 
+[*voltar ao indice*](#índice)
+
 ```js
 const raio = 5.6
 const area = Math.PI * Math.pow(raio, 2)
@@ -176,6 +212,8 @@ console.log(typeof Math)
 ```  
 
 # Tipos em JavaScript: String
+
+[*voltar ao indice*](#índice)
 
 ```js
 const escola ="Cod3r"
@@ -204,8 +242,9 @@ console.log('Ana,Maria,Pedro'.split(','))
 
 ```
 
-
 # Usando Template Strings
+
+[*voltar ao indice*](#índice)
 
 ```js
 const name = 'Rebeca'
@@ -235,4 +274,664 @@ console.log(`Ei... ${up('cuidado')}`)
 
 # Tipos em JavaScript: Boolean
 
+[*voltar ao indice*](#índice)
 
+```js
+let isAtivo = false
+console.log(isAtivo)
+// false
+
+isAtivo = true
+console.log(isAtivo)
+// true
+
+isAtivo = 1
+console.log(!isAtivo)
+// false 
+
+isAtivo = 1
+console.log(!!isAtivo)
+// true 
+
+// verdadeiros...
+console.log(!!3)
+console.log(!!-1)
+console.log(!!' ')
+console.log(!![])
+console.log(!!{})
+console.log(!!Infinity)
+console.log(!!(isAtivo = true))
+// true
+
+//falsos...
+console.log(!!0)
+console.log(!!'')
+console.log(!!null)
+console.log(!!NaN)
+console.log(!!undefined)
+console.log(!!(isAtivo = false))
+
+// pra finalizar
+console.log(( '' || null || 0 || 'epa'))
+// epa
+
+let nome = ''
+
+console.log(nome || 'Desconhecido')
+//Desconhecido
+```
+
+# Tipos em JavaScript: Array
+
+[*voltar ao indice*](#índice)
+
+```js
+
+const valores = [7.7, 8.9, 6.3, 9.2]
+console.log(valores[0], valores[3])
+// 7.2 9.2
+console.log(valores[4])
+// undefined
+
+valores[4] = 10
+console.log(valores[4])
+// 3.5      
+
+valores[10] = 9.2
+console.log(valores)
+// [ 7.7, 8.9, 6.3, 9.2, 3.5, <5 empty items>, 9.2 ]
+
+console.log(valores.length) // tamanho
+// 11
+
+valores.push({id: 3}, false, null, 'teste')
+console.log(valores) // não é ideal misturar valores no array
+/*
+ *[
+ *  7.7,
+ *  8.9,
+ *  6.3,
+ *  9.2,
+ *  3.5,
+ *  <5 empty items>,
+ *  9.2,
+ *  { id: 3 },
+ *  false,
+ *  null,
+ *  'teste'
+ *]
+ */
+
+console.log(valores.pop()) //retira o ultimo valor
+// teste
+
+delete valores[0]
+console.log(valores)
+/*
+ *[
+ *  <1 empty item>,
+ *  8.9,
+ *  6.3,
+ *  9.2,
+ *  3.5,
+ *  <5 empty items>,
+ *  9.2,
+ *  { id: 3 },
+ *  false,
+ *  null,
+ *]
+ */
+
+console.log(typeof valores)
+// object
+```
+
+# Tipos em JavaScript: Object
+
+[*voltar ao indice*](#índice)
+
+```js
+const prod1 = {}
+prod1.nome = 'Celular Ultra Mega'
+prod1.preco = 4998.90
+prod1['Desconto Legal'] = 0.40 // evitar atributos com espaço
+
+console.log(prod1)
+// { nome: 'Celular Ultra Mega', preco: 4998.9, 'Desconto Legal': 0.4 }
+
+const prod2 = {
+  nome: 'Camisa Polo',
+  preco: 79.90,
+  obj: {
+    blabla: 1,
+    obj: {
+      blabla 2,
+    }
+  }
+}
+
+console.log(prod2)
+// { nome: 'Camisa Polo', preco: 79.9, obj: { blabla: 1, obj: { blabla: 2 } } }
+```
+
+# Entendo o Null & Undefined
+
+[*voltar ao indice*](#índice)
+
+A um conceito em que a diferença é atribuição por valor e por referencia
+
+Undefined é a copia por valor 
+E null por referencia
+
+Quando o tipo é primitivo, a cópia é por valor
+Então quando é objeto, a cópia é por referência
+
+```js
+const a = { name: "a"}
+console.log(a)
+// { name: "a"}
+
+const b = a
+console.log(b)
+// { name: "a"}
+
+b.name = 'Opa'
+console.log(b)
+// { name: "Opa"}
+
+console.log(a)
+// { name: "Opa"}
+
+// ----------------------------------------
+
+let c = 3 // undefined
+console.log(c)
+// 3
+
+let d = c // undefined
+console.log(d)
+// 3
+
+d++
+console.log(d) 
+// 4
+
+console.log(c)
+// 3
+
+// ----------------------------------------
+
+let valor // não inicializada
+console.log(valor)
+// undefined
+
+valor = null // ausência de valor
+console.log(valor)
+// null
+
+const produto = {}
+console.log(produto.preco)
+// undefined
+console.log(produto)
+// {}
+
+produto.preco = 3.5
+console.log(produto)
+// { preco: 3.5 }
+```
+
+# Quase Tudo é Função!!!
+
+[*voltar ao indice*](#índice)
+
+```js
+console.log(typeof Object)
+// function
+
+class Produto = {}
+console.log(typeof Produto)
+// function
+```
+
+# Exemplos Básicos de Funções #01
+
+[*voltar ao indice*](#índice)
+
+```js
+
+// Funcao sem retorno
+function imprimirSoma(a, b){
+  console.log(a + b)
+}
+
+imprimirSoma(2,3)
+// 5
+imprimirSoma()
+// NaN
+imprimirSoma(2)
+// NaN
+imprimirSoma(2,3,4,5,6,7,8,9)
+// 5
+
+// Funcao com retorno
+function soma(a, b = 0) {
+  return a+b
+}
+
+console.log(soma(2,3))
+// 5
+console.log(soma(2))
+// 2
+```
+
+# Exemplos Básicos de Funções #02
+
+[*voltar ao indice*](#índice)
+
+```js
+// Armazenando uma função em uma variável
+const imprimirSoma = function(a,b) {
+  console.log(a + b)
+}
+imprimirSoma(2,3)
+//5
+
+// Armazenando uma função arrow em uma variável
+const soma = (a,b) =>{
+  return a+b
+}
+console.log(soma(2,3))
+//5
+
+// retorno implícito
+const subtracao = (a,b) => a-b
+console.log(subtracao(2,3))
+//-1
+
+const imprimir2 = a =>console.log(a)
+imprimir2('legal')
+// legal
+```
+
+# Declaração de Variáveis Com Var #01
+
+[*voltar ao indice*](#índice)
+
+Ao declara var fora do escopo de uma função, ela vai para escopo global
+
+```js
+{
+  {
+    var sera = 'Será???'
+  }
+}
+console.log(sera)
+// Será???
+
+function teste() {
+  var local = 123
+}
+console.log(local)
+// ERRO
+```
+
+# Declaração de Variáveis Com Var #02
+
+[*voltar ao indice*](#índice)
+
+```js
+var numero = 1
+{
+  var numero = 2
+  console.log('dentro =', numero)
+  // dentro = 2
+}
+console.log('fora =', numero)
+// fora = 2
+```
+
+# Declaração de Variáveis Com Let
+
+[*voltar ao indice*](#índice)
+
+Let possui escopo global, de função e de bloco
+
+```js 
+let numero = 1
+{
+  let numero = 2
+  console.log('dentro =',numero)
+  // dentro = 2
+}
+console.log('fora =', numero)
+// fora = 1
+```
+
+# Usando Var em Loop #01
+
+[*voltar ao indice*](#índice)
+
+Var não tem escopo de bloco, por isso fica visivel fora do bloco
+
+```js
+for(var i = 0;i<10;i++){
+  console.log(i)
+  // 1 2 3 4 5 6 7 8 9
+}
+console.log('i =', i)
+// i = 10
+```
+
+# Usando Let em Loop #01
+
+[*voltar ao indice*](#índice)
+
+Let tem escopo de bloco, por isso da erro quando tenta imprimir ela fora do bloco
+
+```js
+for(let i = 0;i<10;i++){
+  console.log(i)
+  // 1 2 3 4 5 6 7 8 9
+}
+console.log('i =', i)
+// ERRO
+```
+
+# Usando Var em Loop #02
+
+[*voltar ao indice*](#índice)
+
+```js
+var funcs = []
+
+for (var i = 0; i < 10 ; i++){
+  funcs.push(function() {
+    console.log(i)
+  })
+}
+
+funcs[2]()
+// 10
+funcs[8]()
+// 10
+```
+
+# Usando Let em Loop #02
+
+[*voltar ao indice*](#índice)
+
+```js
+var funcs = []
+
+for (let i = 0; i < 10 ; i++){
+  funcs.push(function() {
+    console.log(i)
+  })
+}
+
+funcs[2]()
+// 2
+funcs[8]()
+// 8
+```
+
+# Entendendo o Hoisting
+
+[*voltar ao indice*](#índice)
+
+Iça a variável para o topo do escopo. Não funciona com let.
+
+```js
+console.log('a =', a)
+// a = undefined
+var a = 2
+console.log('a =',a)
+// a = 2
+
+console.log('b =',b)
+// ReferenceError: b is not defined
+let b = 2
+console.log('b =', b)
+```
+
+# Função Vs Objeto
+
+[*voltar ao indice*](#índice)
+
+Ao criar um objeto gera uma função, ao instanciar o objeto, gera um objeto
+
+```js
+console.log(typeof Object)
+// function
+console.log(typeof new Object)
+// object
+
+const Cliente = function() {}
+console.log(typeof Cliente)
+// function
+console.log(typeof new Cliente)
+// object
+
+class Produto {} // ES 2015 (ES6)
+console.log(typeof Produto)
+// function
+console.log(typeof new Produto())
+//object
+```
+
+# Par Nome/Valor
+
+[*voltar ao indice*](#índice)
+
+```js
+const saudacao = 'Opa' // contexto léxico 1
+
+function exec() {
+  const saudacao = 'Falaaa' // contexto léxico 2
+  return saudacao
+}
+
+// Objetos são grupos aninhados de pares nome/valor
+const cliente = {
+  nome: 'Pedro',
+  idade: 32,
+  peso: 90,
+  endereco: {
+    logradouro: 'Rua Muito Legal',
+    numero: 123
+  }
+}
+
+console.log(saudacao)
+// Opa
+console.log(exec())
+// Falaaa
+```
+
+# Notação Ponto
+
+[*voltar ao indice*](#índice)
+
+```js
+console.log(Math.ceil(6.1))
+
+const obj1 = {}
+obj1.nome = 'Bola'
+// obj1['nome'] = 'Bola2'
+console.log(obj1.nome)
+// Bola
+
+function Obj(nome){
+  this.nome = nome
+  this.exec= function(){
+    console.log('Exec...')
+  }
+}
+
+const obj2 = new Obj('Cadeira')
+const obj3 = new Obj('Mesa')
+console.log(obj2.nome)
+// Cadeira
+console.log(obj3.nome)
+// Mesa
+obj3.exec()
+// Exec...
+```
+
+# Operadores: Atribuição
+
+[*voltar ao indice*](#índice)
+
+```js
+const a = 7
+let b = 3
+
+b += a
+console.log(b)
+// 10
+
+b -= 4
+console.log(b)
+// 6
+
+b*= 2 
+console.log(b)
+// 12
+
+b /= 2 
+console.log(b)
+// 6
+
+b %= 2
+console.log(b)
+// 0
+```
+
+# Operadores: Destructuring #01
+
+[*voltar ao indice*](#índice)
+
+Operador de desestruturação
+
+```js 
+// novo recurso do ES2015
+
+const pessoa = {
+  nome: 'Ana',
+  idade: 5,
+  endereço: {
+    logradouro: 'Rua ABC',
+    numero: 1000
+  }
+}
+
+const {nome,idade} = pessoa
+
+console.log(nome, idade)
+// Ana 5
+
+const {nome: n,idade: i} = pessoa
+
+console.log(n, i)
+// Ana 5
+
+const {sobrenome,bemHumorada = true} = pessoa
+
+console.log(sobrenome, bemHumorada)
+// undefined true
+
+const { endereco: {logradouro, numero, cep}} = pessoa
+console.log(logradouro, numero, cep)
+// RUA ABC 1000 undefined
+
+const {conta: {ag, numero}} = pessoa
+console.log(ag, numero)
+// ERRO
+```
+
+# Operadores: Destructuring #02
+
+[*voltar ao indice*](#índice)
+
+
+```js
+const [a] = [10]
+console.log(a)
+// 10
+
+const [n1, , n3,n5,n6 = 0] = [10,7,9,8]
+console.log(n1,n3,n5,n6)
+// 10 9 undefined 0
+
+const [,[,nota]] = [[,8,8],[9,6,8]]
+console.log(nota)
+//6
+```
+
+# Operadores: Destructuring #03
+
+[*voltar ao indice*](#índice)
+
+```js
+function rand({min = 0, max = 1000}){
+  const valor = Math.random() * (max - min) + min
+  return Math.floor(valor)
+}
+
+const obj = {max: 50, min: 40}
+console.log(rand(obj))
+// 40 - 50
+
+console.log(rand({min: 955}))
+// 0 - 1000
+console.log(rand({}))
+// 0 - 1000
+console.log(rand())
+// ERRO 
+```
+
+# Operadores: Destructuring #04
+
+[*voltar ao indice*](#índice)
+
+```js
+function rand([min = 0, max = 1000]){
+  if (min > max) [min, max] = [max, min]
+  const valor = Math.random() * (max - min) + min
+  return Math.floor(valor)
+}
+
+console.log(rand([50,40]))
+// 40 - 50
+console.log(rand([992]))
+// 0 - 922
+console.log(rand([, 10]))
+// 0 - 10
+console.log(rand([]))
+// 0 - 1000
+console.log(rand())
+// ERRO 
+```
+
+# Operadores: Aritméticos
+
+[*voltar ao indice*](#índice)
+
+```js
+const [a,b,c,d] = [3,5,1,15]
+const soma = a + b + c + d
+const subtracao = d - b
+const multiplicacao = a * b
+const divisao = d / a 
+const modulo = a % 2
+
+console.log(soma, subtracao, multiplicacao, -divisao, modulo)
+// 24 10 15 -5 1
+```
+
+# Operadores: Relacionais
+
+[*voltar ao indice*](#índice)
+
+```js
+```

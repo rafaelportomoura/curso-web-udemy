@@ -1084,7 +1084,7 @@ console.log('13)' undefined === null)
 
 <table>
   <tr>
-    <th colspan="3">OR</th>
+    <th colspan="3">NOT</th>
   </tr>
   <tr>
     <td><b>NOT</b></td>

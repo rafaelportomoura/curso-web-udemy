@@ -7,7 +7,7 @@
 - Section 2: Configuração do Ambiente  
   4 / 4
 - Section 3: Javascript: Fundamentos  
-  38 / 45
+  45 / 45
 - Section 4: Javascript: Estruturas de Controle  
   0 / 11
 - Section 5: Javascript: Função  

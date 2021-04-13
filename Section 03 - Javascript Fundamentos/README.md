@@ -34,6 +34,11 @@
 - [Operadores: Destructuring #04](#operadores-destructuring-04)
 - [Operadores: Aritméticos](#operadores-aritméticos)
 - [Operadores: Relacionais](#operadores-relacionais)
+- [Operadores: Lógicos](#operadores-lógicos)
+- [Operadores: Unários](#operadores-unários)
+- [Operadores: Ternário](#operadores-ternário)
+- [Contexto de Execução: Browser vs Node](#contexto-de-execução-browser-vs-node)
+- [Tratamento de Erro (Try/Catch/Throw)](#tratamento-de-erro-trycatchthrow)
 
 # Comentários de Códigos
 
@@ -934,4 +939,377 @@ console.log(soma, subtracao, multiplicacao, -divisao, modulo)
 [*voltar ao indice*](#índice)
 
 ```js
+console.log('01)', '1' == 1)
+// 01) true 
+console.log('02)', '1' === 1)
+// 02) false
+console.log('03)', '3' != 3)
+// 03) false
+console.log('04)', '3' !== 3)
+// 04) true
+
+console.log('05)', 3 < 1)
+// 05) false 
+console.log('06)', 3 > 1)
+// 06) true 
+console.log('07)', 3 <= 1)
+// 07) false 
+console.log('08)', 3 >= 1)
+// 08) true
+
+const d1 = new Date(0)
+const d2 = new Date(0)
+
+console.log('09)' d1 === d2)
+// 09) false
+console.log('10)' d1 == d2)
+// 10) false
+console.log('11)' d1.getTime() === d2.getTime())
+// 11) true
+
+console.log('12)' undefined == null)
+// 12) true
+console.log('13)' undefined === null)
+// 13) false
 ```
+
+# Operadores: Lógicos
+
+[*voltar ao indice*](#índice)
+
+<table>
+  <tr>
+    <th colspan="3">OR</th>
+  </tr>
+  <tr>
+    <td><b>P1</b></td>
+    <td><b>P2</b></td>
+    <td><b>RES</b></td>
+  </tr>
+  </tr>
+  <tr>
+    <td><b>V</b></td>
+    <td><b>F</b></td>
+    <td><b>V</b></td>
+  </tr>
+  </tr>
+  <tr>
+    <td><b>V</b></td>
+    <td><b>V</b></td>
+    <td><b>V</b></td>
+  </tr>
+  </tr>
+  <tr>
+    <td><b>F</b></td>
+    <td><b>F</b></td>
+    <td><b>F</b></td>
+  </tr>
+  </tr>
+  <tr>
+    <td><b>F</b></td>
+    <td><b>V</b></td>
+    <td><b>V</b></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th colspan="3">AND</th>
+  </tr>
+  <tr>
+    <td><b>P1</b></td>
+    <td><b>P2</b></td>
+    <td><b>RES</b></td>
+  </tr>
+  </tr>
+  <tr>
+    <td><b>V</b></td>
+    <td><b>F</b></td>
+    <td><b>F</b></td>
+  </tr>
+  </tr>
+  <tr>
+    <td><b>V</b></td>
+    <td><b>V</b></td>
+    <td><b>V</b></td>
+  </tr>
+  </tr>
+  <tr>
+    <td><b>F</b></td>
+    <td><b>F</b></td>
+    <td><b>F</b></td>
+  </tr>
+  </tr>
+  <tr>
+    <td><b>F</b></td>
+    <td><b>V</b></td>
+    <td><b>F</b></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th colspan="3">XOR</th>
+  </tr>
+  <tr>
+    <td><b>P1</b></td>
+    <td><b>P2</b></td>
+    <td><b>RES</b></td>
+  </tr>
+  </tr>
+  <tr>
+    <td><b>V</b></td>
+    <td><b>F</b></td>
+    <td><b>V</b></td>
+  </tr>
+  </tr>
+  <tr>
+    <td><b>V</b></td>
+    <td><b>V</b></td>
+    <td><b>F</b></td>
+  </tr>
+  </tr>
+  <tr>
+    <td><b>F</b></td>
+    <td><b>F</b></td>
+    <td><b>F</b></td>
+  </tr>
+  </tr>
+  <tr>
+    <td><b>F</b></td>
+    <td><b>V</b></td>
+    <td><b>V</b></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th colspan="3">OR</th>
+  </tr>
+  <tr>
+    <td><b>NOT</b></td>
+    <td><b>P2</b></td>
+    <td><b>RES</b></td>
+  </tr>
+  </tr>
+  <tr>
+    <td><b>!</b></td>
+    <td><b>V</b></td>
+    <td><b>F</b></td>
+  </tr>
+  </tr>
+  <tr>
+    <td><b>!</b></td>
+    <td><b>F</b></td>
+    <td><b>V</b></td>
+  </tr>
+  </tr>
+</table>
+
+**Problema**: Se o algum dos dois trabalhos der certo ira comprar sorvete e não se manterá saudável, se os dois trabalhos derem certo irá comprar uma Tv de 50 polegadas, mas se um trabalho der certo e o outro não, irá comprar uma tv de 32 polegadas. Crie um programa que retorna se a pessoa irá comprar sorvete, se manter saudavel, comprar uma Tv de 50 polegadas e se ira comprar uma tv de 32 polegadas:
+
+```js 
+function compras(trabalho1, trabalho2){
+  const comprarSorvete = trabalho1 || trabalho2
+  const comprarTv50 = trabalho1 && trabalho2
+  const comprarTv32 = trabalho1 != trabalho2
+  const manterSaudavel = !comprarSorvete
+  
+  return {comprarSorvete, comprarTv50, comprarTv32, manterSaudavel}
+}
+  
+console.log(compras(true, true))
+// { comprarSorvete: true, comprarTv50: true, comprarTv32: false, manterSaudavel: false }
+```
+
+# Operadores: Unários
+
+[*voltar ao indice*](#índice)
+
+++variavel: é incrementado antes da ação
+variavel++: é incrementado após a função
+
+```js
+let num1 = 1  
+let num2 = 2
+
+num1++ 
+console.log(num1)
+// 2
+
+--num1
+console.log(num1)
+// 1
+
+console.log(++num1 === num2--)
+// true
+
+console.log(num1 === num2)
+// false
+```
+
+# Operadores: Ternário
+
+[*voltar ao indice*](#índice)
+
+
+condição ? se_verdadeiro : se_falso
+
+? operador ternário se verdadeiro  
+: operador ternário se falso  
+
+```js
+const resultado = nota =>  nota>=7 ? 'Aprovado' : 'Reprovado'
+
+console.log(resultado(7.1))
+// Aprovado
+
+console.log(resultado(6.1))
+// Reprovado
+```
+
+# Contexto de Execução: Browser vs Node
+
+[*voltar ao indice*](#índice)
+
+
+Browser: 
+
+```js
+window
+// Window {0: global, window: Window, self: Window, document: document, name: "", location: Location, …}
+
+this
+// Window {0: global, window: Window, self: Window, document: document, name: "", location: Location, …}
+
+this === window
+// true
+
+var a = 'Texto'
+// undefined
+
+window.a
+// 'Texto'
+
+var a = 123
+// undefined
+
+
+window.a
+// 123
+
+this.a
+// 123
+
+let b = 123
+// undefined
+
+window.b
+// undefined
+
+let b = 123
+// ERRO
+
+this.b
+// undefined
+
+b
+// 123
+
+const c = 456
+// undefined
+
+window.c
+// undefined
+
+function f1() {return this===window}
+// undefined
+
+f1()
+// true
+
+window.f1()
+// true
+
+this.f1()
+// true
+
+const f2 = () => console.log(this === window)
+// undefined
+
+f2()
+// true
+
+this.f2()
+// ERRO
+```
+
+Node:
+
+```js
+let a = 3
+
+global.b = 123
+this.c = 456
+
+console.log(a)
+// 3
+
+console.log(global.b)
+// 123
+
+console.log(this.c)
+// 456
+
+console.log(module.exports.c)
+// 456
+
+console.log(module.exports === this)
+// true
+
+console.log(module.exports)
+// { c: 456 }
+
+// criando uma variavel maluca: sem var e let!
+abc = 3 // nao faça isso
+console.log(global.abc)
+// 3
+
+module.exports = { e: 456, f: false, g: 'teste'}
+```
+
+# Tratamento de Erro (Try/Catch/Throw)
+
+[*voltar ao indice*](#índice)
+
+O programa executa o bloco try, caso ocorra algum erro, passa para o bloco catch, e logo após o finally, que sempre é chamado e é opcional
+
+```js
+function tratarErroELancar(erro){
+    throw new Error('...')
+    // throw 10
+    // throw 'mensagem'
+    // throw {
+    //  nome: erro.nome,
+    //  msg: erro.message,
+    //  date: new Date
+    //}
+}
+
+
+function imprimirNomeGritado(obj) {
+    try {
+      // Name não existe, a chave é nome
+      console.log(obj.name.toUpperCase() + "!!!")
+    } catch (e){
+      tratarErroELancar(e)
+    } finally  {
+      console.log('final')
+    }
+}
+
+const obj = { nome: 'Roberto' }
+
+imprimirNomeGritado(obj)
+// Error: ...
+}

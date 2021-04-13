@@ -11,7 +11,7 @@
 - Section 4: Javascript: Estruturas de Controle  
   11 / 11
 - Section 5: Javascript: Função  
-  0 / 26
+  26 / 26
 - Section 6: Javascript: Objeto  
   0 / 17
 - Section 7: Javascript: Array  

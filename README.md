@@ -9,7 +9,7 @@
 - Section 3: Javascript: Fundamentos  
   45 / 45
 - Section 4: Javascript: Estruturas de Controle  
-  0 / 11
+  11 / 11
 - Section 5: Javascript: Função  
   0 / 26
 - Section 6: Javascript: Objeto  

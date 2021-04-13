@@ -807,6 +807,10 @@ b /= 2
 console.log(b)
 // 6
 
+b **= 2
+console.log(b)
+// 36
+
 b %= 2
 console.log(b)
 // 0
@@ -928,10 +932,11 @@ const soma = a + b + c + d
 const subtracao = d - b
 const multiplicacao = a * b
 const divisao = d / a 
+const potenciacao = d ** 2
 const modulo = a % 2
 
-console.log(soma, subtracao, multiplicacao, -divisao, modulo)
-// 24 10 15 -5 1
+console.log(soma, subtracao, multiplicacao, -divisao,potenciacao, modulo)
+// 24 10 15 -5 25 1
 ```
 
 # Operadores: Relacionais

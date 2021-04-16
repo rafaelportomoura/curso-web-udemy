@@ -13,7 +13,7 @@
 - Section 5: Javascript: Função  
   26 / 26
 - Section 6: Javascript: Objeto  
-  0 / 17
+  17 / 17
 - Section 7: Javascript: Array  
   0 / 16
 - Section 8: Lista de Exercícios de JavaScript  

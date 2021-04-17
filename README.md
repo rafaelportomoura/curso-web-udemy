@@ -15,7 +15,7 @@
 - Section 6: Javascript: Objeto  
   17 / 17
 - Section 7: Javascript: Array  
-  0 / 16
+  16 / 16
 - Section 8: Lista de Exercícios de JavaScript  
   0 / 2
 - Section 9: Node  
@@ -74,4 +74,4 @@
   0 / 8
 - Section 36: Conclusão Curso Desenvolvimento Web  
   0 / 1
-- Section 37: Gulp - Versão 3 [LEGADO]  
+- Section 37: Gulp - Versão 3 [LEGADO]

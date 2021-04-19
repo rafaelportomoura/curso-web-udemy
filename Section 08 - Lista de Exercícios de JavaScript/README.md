@@ -93,7 +93,10 @@ calcularSalario(150, 40.5) // retornará "Salário igual a R$ 6075"
 **Resolução:**
 
 ```js
+const calcularSalario = (horas_trabalhadas, pagamento_por_hora) =>
+  `Salário igual a R$${(horas_trabalhadas * pagamento_por_hora).toFixed(2)}`;
 
+console.log(calcularSalario(150, 40.5));
 ```
 
 # Exercício 4
@@ -112,7 +115,25 @@ nomeDoMes(4) // retornará "abril"
 **Resolução:**
 
 ```js
+const meses = {
+  1: 'janeiro',
+  2: 'fevereiro',
+  3: 'março',
+  4: 'abril',
+  5: 'maio',
+  6: 'junho',
+  7: 'julho',
+  8: 'agosto',
+  9: 'setembro',
+  10: 'outubro',
+  11: 'novembro',
+  12: 'dezembro',
+};
 
+const nomeDoMes = (mes) => meses[mes];
+
+console.log(nomeDoMes(1));
+console.log(nomeDoMes(4));
 ```
 
 # Exercício 5
@@ -132,7 +153,11 @@ maiorOuIgual(5, 1) // retornará false
 **Resolução:**
 
 ```js
+const maiorOuIgual = (a, b) => a >= b;
 
+console.log(maiorOuIgual(0, 0));
+console.log(maiorOuIgual(0, '0'));
+console.log(maiorOuIgual(5, 1));
 ```
 
 # Exercício 6
@@ -153,7 +178,19 @@ inverso("programação") // retornará "booleano ou números esperado, mas o par
 **Resolução:**
 
 ```js
+const inverso = (aSerInvertido) => {
+  return typeof aSerInvertido === 'number'
+    ? -aSerInvertido
+    : typeof aSerInvertido === 'boolean'
+    ? !aSerInvertido
+    : `booleano ou números esperado, mas o parâmetro é do tipo ${typeof aSerInvertido}`;
+};
 
+console.log(inverso(true));
+console.log(inverso('6'));
+console.log(inverso(-2000));
+console.log(inverso([]));
+console.log(inverso({}));
 ```
 
 # Exercício 7
@@ -174,7 +211,16 @@ estaEntre(3, 150, 3, true) // retornará true
 **Resolução:**
 
 ```js
+const estaEntre = (numero, minimo, maximo, inclusivo = false) => {
+  return inclusivo
+    ? minimo <= numero && numero <= maximo
+    : minimo < numero && numero < maximo;
+};
 
+console.log(estaEntre(10, 100, 50));
+console.log(estaEntre(16, 100, 160));
+console.log(estaEntre(3, 150, 3));
+console.log(estaEntre(3, 150, 50));
 ```
 
 # Exercício 8
@@ -193,7 +239,16 @@ multiplicar(0, 7) // retornará 0
 **Resolução:**
 
 ```js
+const multiplicar = (x, y) => {
+  let multiplicacao = 0;
+  for (let i = 0; i < y; i++) {
+    multiplicacao += x;
+  }
+  return multiplicacao;
+};
 
+console.log(multiplicar(5, 5));
+console.log(multiplicar(0, 7));
 ```
 
 # Exercício 9
@@ -212,7 +267,16 @@ repetir(7, 3) // retornará [7, 7, 7]
 **Resolução:**
 
 ```js
+const repetir = (elemento, repeticoes) => {
+  const array = [];
+  for (let i = 0; i < repeticoes; i++) {
+    array.push(elemento);
+  }
+  return array;
+};
 
+console.log(repetir('código', 2));
+console.log(repetir(7, 3));
 ```
 
 # Exercício 10
@@ -231,7 +295,16 @@ simboloMais(4) // retornará "++++"
 **Resolução:**
 
 ```js
+const simboloMais = (quantidade) => {
+  let string = '';
+  for (let i = 0; i < quantidade; i++) {
+    string += '+';
+  }
+  return string;
+};
 
+console.log(simboloMais(2));
+console.log(simboloMais(4));
 ```
 
 # Exercício 11
@@ -250,20 +323,30 @@ receberPrimeiroEUltimoElemento([-100, "aplicativo", 16]) // retornará [-100, 16
 **Resolução:**
 
 ```js
+const receberPrimeiroEUltimoElemento = (array) => [array[0], array[array.length - 1]];
 
+console.log(receberPrimeiroEUltimoElemento([7, 14, 'olá']));
+console.log(receberPrimeiroEUltimoElemento([-100, 'aplicativo', 16]));
 ```
 
 # Exercício 12
 
 [Section 08 - Lista de Exercícios JavaScript](#section-08---lista-de-exercícios-javascript)
 
-Quando temos um objeto e manipulamos seus atributos, adicionando, atualizando ou removendo-os, estamos apenas modificando-o,mas, em essência, o objeto continua o mesmo, ou seja a sua referência de memória é a mesma. Num projeto que você está trabalhando, você foi designado a refatorar diversas funções para que façam cópias de objetos e manipulemos dados dessas cópias, como intuito de evitar efeitos indesejáveis em algumas situações devido a referências a objetos. Abaixo,está a descrição de uma dessas funções. Você escreverá uma função que recebe um objeto como primeiro parâmetro e,como segundo parâmetro, o nome de uma propriedade contida nesse objeto.Em seguida,retorne uma cópia desse objetos em a propriedade especificada no segundo parâmetro.
+Quando temos um objeto e manipulamos seus atributos, adicionando, atualizando ou removendo-os, estamos apenas modificando-o,mas, em essência, o objeto continua o mesmo, ou seja a sua referência de memória é a mesma. Num projeto que você está trabalhando, você foi designado a refatorar diversas funções para que façam cópias de objetos e manipulemos dados dessas cópias, como intuito de evitar efeitos indesejáveis em algumas situações devido a referências a objetos. Abaixo,está a descrição de uma dessas funções. Você escreverá uma função que recebe um objeto como primeiro parâmetro e,como segundo parâmetro, o nome de uma propriedade contida nesse objeto.Em seguida,retorne uma cópia desse objetos sem a propriedade especificada no segundo parâmetro.
 
 Exemplos:
 
 ```
-removerPropriedade({a: 1, b: 2}, "a") // retornará {b: 2}
-removerPropriedade({  id: 20,  nome: "caneta",  descricao: "Não preenchido"}, "descricao") // retornará {id: 20, nome: "caneta"
+removerPropriedade({
+  a: 1,
+  b: 2
+}, "a") // retornará {b: 2}
+removerPropriedade({
+  id: 20,
+  nome: "caneta",
+  descricao: "Não preenchido"
+}, "descricao") // retornará {id: 20, nome: "caneta"
 ```
 
 💡 _A fim de testar se o objeto retornado não é o mesmo que foi passado como parâmetro para a função `removerPropriedade`, você poderá usar a `funçãoObject.is()`, por exemplo:_  
@@ -273,7 +356,28 @@ _Retornará `false` se o objeto não for o mesmo._
 **Resolução:**
 
 ```js
+  const novo_objeto = {};
+  for (const key in objeto) {
+    if (key !== key_to_remove) novo_objeto[key] = objeto[key];
+  }
+  return novo_objeto;
+};
 
+const objeto1 = {
+  a: 1,
+  b: 2,
+};
+
+const objeto2 = {
+  id: 20,
+  nome: 'caneta',
+  descricao: 'Não preenchido',
+};
+
+console.log(Object.is(removerPropriedade(objeto1, 'a'), objeto1));
+console.log(removerPropriedade(objeto1, 'a'));
+console.log(Object.is(removerPropriedade(objeto2, 'descricao'), objeto2));
+console.log(removerPropriedade(objeto2, 'descricao'));
 ```
 
 # Exercício 13
@@ -292,7 +396,16 @@ filtrarNumeros(["a", "c"]) // retornará []
 **Resolução:**
 
 ```js
+const filtrarNumeros = (array) => {
+  const number_array = [];
+  for (const element of array) {
+    if (typeof element === 'number') number_array.push(element);
+  }
+  return number_array;
+};
 
+console.log(filtrarNumeros(['Javascript', 1, '3', 'Web', 20]));
+console.log(filtrarNumeros(['a', 'c']));
 ```
 
 # Exercício 14
@@ -318,7 +431,26 @@ objetoParaArray({
 **Resolução:**
 
 ```js
+const objetoParaArray = (objeto) => {
+  const array = [];
+  for (const key in objeto) {
+    array.push([key, objeto[key]]);
+  }
+  return array;
+};
 
+console.log(
+  objetoParaArray({
+    nome: 'Maria',
+    profissao: 'Desenvolvedora de software',
+  })
+);
+console.log(
+  objetoParaArray({
+    codigo: 11111,
+    preco: 12000,
+  })
+);
 ```
 
 # Exercício 15
@@ -340,7 +472,16 @@ receberSomenteOsParesDeIndicesPares([10, 70, 22, 43]) // retornará [10, 22]
 **Resolução:**
 
 ```js
+const receberSomenteOsParesDeIndicesPares = (array) => {
+  let pares = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 === 0 && i % 2 === 0) pares.push(array[i]);
+  }
+  return pares;
+};
 
+console.log(receberSomenteOsParesDeIndicesPares([1, 2, 3, 4]));
+console.log(receberSomenteOsParesDeIndicesPares([10, 70, 22, 43]));
 ```
 
 # Exercício 16
@@ -350,7 +491,7 @@ receberSomenteOsParesDeIndicesPares([10, 70, 22, 43]) // retornará [10, 22]
 A fim de manter o calendário anual ajustado com o movimento de translação da Terra, criou-se os anos
 bissextos, que tém 366 dias em vez dos 365 presentes nos anos normais.
 
-Para determinar se um ano é bissexto, 6 necessário saber se ele 6 múltiplo de 4. Não pode ser múltiplo de 100,
+Para determinar se um ano é bissexto, É necessário saber se ele é múltiplo de 4. Não pode ser múltiplo de 100,
 exceto se for também múltiplo de 400.
 
 Com isso em mente, desenvolva uma função que recebe um número correspondente a um ano e retorna se ele
@@ -366,7 +507,11 @@ checarAnoBissexto(2100) // retornará false, pois é múltiplo de 100 e não é 
 **Resolução:**
 
 ```js
+const checarAnoBissexto = (ano) =>
+  ano % 400 === 0 ? true : ano % 100 === 0 ? false : ano % 4 === 0 ? true : false;
 
+console.log(checarAnoBissexto(2000));
+console.log(checarAnoBissexto(2100));
 ```
 
 # Exercício 17
@@ -385,7 +530,10 @@ somarNumeros([15, 15, 15, 15]) // retornará 60
 **Resolução:**
 
 ```js
+const somarNumeros = (array) => array.reduce((prev, curr) => prev + curr);
 
+console.log(somarNumeros([10, 10, 10]));
+console.log(somarNumeros([15, 15, 15, 15]));
 ```
 
 # Exercício 18
@@ -393,7 +541,7 @@ somarNumeros([15, 15, 15, 15]) // retornará 60
 [Section 08 - Lista de Exercícios JavaScript](#section-08---lista-de-exercícios-javascript)
 
 Vocé está trabalhando numa aplicação pessoal de controle de despesas. Na tela principal dessa aplicação, é
-possível adicionar produtos ou serviços, informando nome, categoria e prego. Uma funcionalidade que vocé
+possível adicionar produtos ou serviços, informando nome, categoria e preço. Uma funcionalidade que vocé
 está desenvolvendo no momento é a de somar o total das despesas.
 
 Crie uma função que receba um array de produtos e retorne o total das despesas.
@@ -414,7 +562,24 @@ despesasTotais([
 **Resolução:**
 
 ```js
+const retornaPreco = (despesa) => despesa.preco;
+const somaDespesas = (soma, despesa) => soma + despesa;
 
+const despesasTotais = (array_de_despesas) =>
+  array_de_despesas.map(retornaPreco).reduce(somaDespesas);
+
+despesa1 = [
+  { nome: 'Jornal Online', categoria: 'Informação', preco: 89.99 },
+  { nome: 'Cinema', categoria: 'Entretenimento', preco: 150 },
+];
+
+despesa2 = [
+  { nome: 'Galaxy S20', categoria: 'Eletrônicos', preco: 3599.99 },
+  { nome: 'Macbook Pro', categoria: 'Eletrônicos', preco: 30999.9 },
+];
+
+console.log(despesasTotais(despesa1));
+console.log(despesasTotais(despesa2));
 ```
 
 # Exercício 19
@@ -435,14 +600,20 @@ calcularMedia([1, 2, 3, 4, 5]) // retornará 3
 **Resolução:**
 
 ```js
+const somaNumeros = (soma, numero) => soma + numero;
+const media = (total, quantidade) => total / quantidade;
 
+const calcularMedia = (array) => media(array.reduce(somaNumeros), array.length);
+
+console.log(calcularMedia([0, 10]));
+console.log(calcularMedia([1, 2, 3, 4, 5]));
 ```
 
 # Exercício 20
 
 [Section 08 - Lista de Exercícios JavaScript](#section-08---lista-de-exercícios-javascript)
 
-Façaumafunçãoquerecebeabaseeaalturadeumtriânguloeretorneaáreadessetriângulo.Aprecisãodeveráserdeduascasasdecimais,arredondandosenecessário.
+Faça uma função que recebe a base e a altura de um triângulo e retorne a área desse triângulo.A precisão deverá ser de duas casas decimais, arredondando se necessário.
 
 📕*Obs: a fórmula para calcular a área de um triângulo é (base x altura)/2*
 
@@ -457,7 +628,11 @@ areaDoTriangulo(9.25, 13.1) // retornará 60.59
 **Resolução:**
 
 ```js
+const areaDoTriangulo = (base, altura) => (base * altura) / 2;
 
+console.log(areaDoTriangulo(10, 15));
+console.log(areaDoTriangulo(7, 9));
+console.log(areaDoTriangulo(9.25, 13.1));
 ```
 
 # Exercício 21
@@ -476,7 +651,16 @@ menorNumero([5, -15, 50, 3]) // retornará -15
 **Resolução:**
 
 ```js
+const menorNumero = (array) => {
+  let menor = +Infinity;
+  for (const numero of array) {
+    menor = numero < menor ? numero : menor;
+  }
+  return menor === +Infinity ? [] : menor;
+};
 
+console.log(menorNumero([10, 5, 35, 65]));
+console.log(menorNumero([5, -15, 50, 3]));
 ```
 
 # Exercício 22
@@ -496,7 +680,16 @@ funcaoDaSorte(5) // retornará "Que pena! O número sorteado foi o 1"
 **Resolução:**
 
 ```js
+const funcaoDaSorte = (numero) => {
+  let sorteado = Math.floor(Math.random() * (numero + 1));
+  return numero === sorteado
+    ? `Parabéns! O número sorteado foi o ${sorteado}`
+    : `Que pena! O número sorteado foi o ${sorteado}`;
+};
 
+console.log(funcaoDaSorte(10));
+console.log(funcaoDaSorte(5));
+console.log(funcaoDaSorte(5));
 ```
 
 # Exercício 23
@@ -517,7 +710,10 @@ contarPalavras("Me divirto aprendendo a programar") // retornará
 **Resolução:**
 
 ```js
+const contarPalavras = (string) => string.split(' ').length;
 
+console.log(contarPalavras('Sou uma frase'));
+console.log(contarPalavras('Me divirto aprendendo a programar'));
 ```
 
 # Exercício 24
@@ -536,7 +732,16 @@ contarCaractere("c", "Conhece-te a ti mesmo") // retornará 1
 **Resolução:**
 
 ```js
+const contarCaractere = (caracter, string) => {
+  let quantidade = 0;
+  for (const char of string) {
+    if (caracter === char) quantidade++;
+  }
+  return quantidade;
+};
 
+console.log(contarCaractere('r', 'A sorte favorece os audazes'));
+console.log(contarCaractere('c', 'Conhece-te a ti mesmo'));
 ```
 
 # Exercício 25
@@ -555,7 +760,18 @@ buscarPalavrasSemelhantes("python", ["javascript", "java", "c++"]) // retornará
 **Resolução:**
 
 ```js
+const buscarPalavrasSemelhante = (palavra, array) => {
+  const array_com_palavras_semelhantes = [];
+  array.forEach((element) => {
+    if (element.search(palavra) >= 0) {
+      array_com_palavras_semelhantes.push(element);
+    }
+  });
+  return array_com_palavras_semelhantes;
+};
 
+console.log(buscarPalavrasSemelhante('pro', ['programação', 'mobile', 'profissional']));
+console.log(buscarPalavrasSemelhante('python', ['javascript', 'java', 'c++']));
 ```
 
 # Exercício 26
@@ -574,7 +790,24 @@ removerVogais("Fundamentos") // retornará "Fndmnts"
 **Resolução:**
 
 ```js
+const vogais = {
+  a: 'a',
+  e: 'e',
+  i: 'i',
+  o: 'o',
+  u: 'u',
+};
 
+const removerVogais = (string) => {
+  stringDeRetorno = '';
+  for (const caractere of string) {
+    if (!vogais[caractere]) stringDeRetorno += caractere;
+  }
+  return stringDeRetorno;
+};
+
+console.log(removerVogais('Cod3r'));
+console.log(removerVogais('Fundamentos'));
 ```
 
 # Exercício 27
@@ -592,7 +825,16 @@ inverter({ a: 1, b: 2, c: 3}) // retornará { 1: "a", 2: "b", 3: "c"}
 **Resolução:**
 
 ```js
+const inverter = (objeto) => {
+  const objeto_invertido = {};
+  for (const key in objeto) {
+    let value = objeto[key];
+    objeto_invertido[value] = key;
+  }
+  return objeto_invertido;
+};
 
+console.log(inverter({ a: 1, b: 2, c: 3 }));
 ```
 
 # Exercício 28
@@ -611,7 +853,22 @@ filtrarPorQuantidadeDeDigitos([5, 9, 1, 125, 11], 1) // retornará [5, 9, 1]
 **Resolução:**
 
 ```js
+const potenciaDeDez = (expoente) => 10 ** expoente;
 
+const numeroTemAQuantidadeDeDigitos = (numero, quantidade_de_digitos) => {
+  quantidade_de_digitos_maior_igual = numero >= potenciaDeDez(quantidade_de_digitos - 1);
+  quantidade_de_digitos_menor_igual = numero < potenciaDeDez(quantidade_de_digitos);
+
+  return quantidade_de_digitos_maior_igual && quantidade_de_digitos_menor_igual;
+};
+
+const filtrarPorQuantidadeDeDigitos = (array_de_numero, quantidade_de_digitos) =>
+  array_de_numero.filter((numero) =>
+    numeroTemAQuantidadeDeDigitos(numero, quantidade_de_digitos)
+  );
+
+console.log(filtrarPorQuantidadeDeDigitos([38, 2, 365, 10, 125, 11], 2));
+console.log(filtrarPorQuantidadeDeDigitos([5, 9, 1, 125, 11], 1));
 ```
 
 # Exercício 29
@@ -630,7 +887,10 @@ segundoMaior([8, 4, 5, 6]) // retornará 6
 **Resolução:**
 
 ```js
+const segundoMaior = (array) => array.sort((a, b) => b - a)[1];
 
+console.log(segundoMaior([12, 16, 1, 5]));
+console.log(segundoMaior([8, 4, 5, 6]));
 ```
 
 # Exercício 30
@@ -652,5 +912,26 @@ recerberMelhorEstudante({
 **Resolução:**
 
 ```js
+const retornaMedia = (array) =>
+  array.reduce((acumulador, nota) => acumulador + nota) / array.length;
 
+const receberMelhorEstudante = (notas) => {
+  const maior_media = { nome: '', media: -Infinity };
+  for (const nome in notas) {
+    let media = retornaMedia(notas[nome]);
+    if (media > maior_media.media) {
+      maior_media.nome = nome;
+      maior_media.media = media;
+    }
+  }
+  return maior_media;
+};
+
+console.log(
+  receberMelhorEstudante({
+    Joao: [8, 7.6, 8.9, 6],
+    Mariana: [9, 6.6, 7.9, 8],
+    Carla: [7, 7, 8, 9],
+  })
+);
 ```

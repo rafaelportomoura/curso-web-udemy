@@ -17,7 +17,7 @@
 - Section 7: Javascript: Array  
   16 / 16
 - Section 8: Lista de Exercícios de JavaScript  
-  0 / 2
+  2 / 2
 - Section 9: Node  
   0 / 23
 - Section 10: ESNext  

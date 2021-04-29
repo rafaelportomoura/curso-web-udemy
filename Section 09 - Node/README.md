@@ -16,6 +16,11 @@
 - [Escrevendo arquivos](#escrevendo-arquivos)
 - [Padrão Middleware #01](#padrão-middleware-01)
 - [Padrão Middleware #02](#padrão-middleware-02)
+- [Projeto: API com Express #01](#projeto-api-com-express-01)
+- [Projeto: API com Express #02](#projeto-api-com-express-02)
+- [Projeto: API com Express #03](#projeto-api-com-express-03)
+- [Tarefas Agendadas com Temporizador](#tarefas-agendadas-com-temporizador)
+- [Process: Entrada e Saída Padrão](#process-entrada-e-saída-padrão)
 
 # Sistema de Módulos
 
@@ -388,6 +393,80 @@ fs.writeFile(__dirname + '/arquivoGerado.json', JSON.stringify(produto), (err) =
 
 [_voltar ao índice_](#índice)
 
+O padrão middleware funciona como uma cadeia de responsabilidade (chain of responsibility) em que cada função tem sua responsabilidade e para não ficarem entrelaçadas entre si, o middleware tem o atributo `next()` que chama a próxima função, dessa forma, o middleware não tem a necessidade de saber qual a próxima função, pois esta responsabilidade fica para o processo.
+
+![Middleware](./img/middleware.png)
+
 # Padrão Middleware #02
 
 [_voltar ao índice_](#índice)
+
+```js
+const passo1 = (ctx, next) => {
+  ctx.valor1 = 'mid1';
+  next();
+};
+
+const passo2 = (ctx, next) => {
+  ctx.valor2 = 'mid2';
+  next();
+};
+
+const passo3 = (ctx) => (ctx.valor3 = 'mid3');
+
+const exec = (ctx, ...middlewares) => {
+  const execPasso = (indice) => {
+    middlewares &&
+      indice < middlewares.length &&
+      middlewares[indice](ctx, () => execPasso(indice + 1));
+  };
+  execPasso(0);
+};
+
+const ctx = {};
+
+exec(ctx, passo1, passo2, passo3);
+
+console.log(ctx);
+// { valor1: 'mid1', valor2: 'mid2', valor3: 'mid3' }
+```
+
+# Projeto: API com Express #01
+
+[_voltar ao índice_](#índice)
+
+```js
+
+```
+
+# Projeto: API com Express #02
+
+[_voltar ao índice_](#índice)
+
+```js
+
+```
+
+# Projeto: API com Express #03
+
+[_voltar ao índice_](#índice)
+
+```js
+
+```
+
+# Tarefas Agendadas com Temporizador
+
+[_voltar ao índice_](#índice)
+
+```js
+
+```
+
+# Process: Entrada e Saída Padrão
+
+[_voltar ao índice_](#índice)
+
+```js
+
+```

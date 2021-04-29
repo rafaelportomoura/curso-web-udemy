@@ -20,6 +20,8 @@
 - [Projeto: API com Express #02](#projeto-api-com-express-02)
 - [Projeto: API com Express #03](#projeto-api-com-express-03)
 - [Tarefas Agendadas com Temporizador](#tarefas-agendadas-com-temporizador)
+  - [node-schedule](#node-schedule)
+  - [Aula](#aula)
 - [Process: Entrada e Saída Padrão](#process-entrada-e-saída-padrão)
 
 # Sistema de Módulos
@@ -647,8 +649,53 @@ package.json
 
 [_voltar ao índice_](#índice)
 
-```js
+No JavaScript, já possui temporizadores nativos como `setTimeout()` e o `setInterval()`, porém nesse exemplo vamos usar uma biblioteca que faz isso de uma forma mais limpa.
 
+## [node-schedule](https://www.npmjs.com/package/node-schedule)
+
+![image](./img/node-schedule.png)
+
+Exemplos com o formato cron:
+
+```js
+const schedule = require('node-schedule');
+
+const job = schedule.scheduleJob('42 * * * *', function () {
+  console.log('The answer to life, the universe, and everything!');
+});
+```
+
+Execute um cron job quando o minuto for 42 (por exemplo, 19:42, 20:42 etc.).
+
+Para instalar ela use o seguinte comando:
+
+```bash
+npm i node-schedule
+```
+
+## Aula
+
+```js
+const schedule = require('node-schedule');
+
+// execute uma tarefa a cada 5 segundo na hora 12 na terça feira
+const tarefa1 = schedule.scheduleJob('*/5 * 12 * * 2', function () {
+  console.log('Executando Tarefa 1!', new Date().getSeconds());
+});
+
+setTimeout(function () {
+  tarefa1.cancel();
+  console.log('Cancelando Tarefa 1!')
+}, 20000)
+
+const regra = new schedule.RecurrenceRule()
+regra.dayOfWeek = [new schedule.Range(1,5)] // segunda a sexta
+regra.hour = 12
+regra.second = 30
+
+const tarefa2 = schedule.scheduleJob(regra, function () {
+  console.log('Executando Tarefa 2!', new Date().getSeconds());
+}
 ```
 
 # Process: Entrada e Saída Padrão

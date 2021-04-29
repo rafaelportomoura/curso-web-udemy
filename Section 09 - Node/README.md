@@ -703,5 +703,22 @@ const tarefa2 = schedule.scheduleJob(regra, function () {
 [_voltar ao índice_](#índice)
 
 ```js
+// Parâmetro por argumento:
+const anonimo = process.argv.indexOf('-a') !== -1;
+console.log(anonimo);
 
+if (anonimo) {
+  // Escreve no terminal
+  process.stdout.write('Fala Anônimo!\n');
+  // Encerra processo
+  process.exit();
+} else {
+  process.stdout.write('Informe o seu nome: ');
+  // Lê pelo terminal
+  process.stdin.on('data', (data) => {
+    const nome = data.toString().replace('\n', '');
+    process.stdout.write(`Fala ${nome}!!\n`);
+    process.exit();
+  });
+}
 ```

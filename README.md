@@ -19,7 +19,7 @@
 - Section 8: Lista de Exercícios de JavaScript  
   2 / 2
 - Section 9: Node  
-  0 / 23
+  21 / 23
 - Section 10: ESNext  
   0 / 24
 - Section 11: Conceitos sobre Web  

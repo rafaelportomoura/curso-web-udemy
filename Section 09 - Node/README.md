@@ -435,8 +435,42 @@ console.log(ctx);
 
 [_voltar ao índice_](#índice)
 
-```js
+servidor.js
 
+```js
+const porta = 3003;
+
+const express = require('express');
+
+const app = express();
+app.get('/produtos', (req, res, next) => {
+  res.send({ nome: 'Notebook', preco: 123.45 });
+});
+
+app.listen(porta, () => {
+  console.log(`Servidor rondando no link http://localhost:${porta}`);
+});
+```
+
+package.json
+
+```json
+{
+  "name": "Projeto-API-com-Express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/servidor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.16.2"
+  }
+}
 ```
 
 # Projeto: API com Express #02

@@ -21,7 +21,7 @@
 - Section 9: Node  
   23 / 23
 - Section 10: ESNext  
-  0 / 24
+  4 / 24
 - Section 11: Conceitos sobre Web  
   0 / 11
 - Section 12: HTML  

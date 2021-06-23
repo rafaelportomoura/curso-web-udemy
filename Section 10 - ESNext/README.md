@@ -2,6 +2,8 @@
 
 - [Índice](#índice)
 - [Operador Rest/Spread](#operador-restspread)
+- [Tagged template](#tagged-template)
+- [Tagged template #02](#tagged-template-02)
 
 # Operador Rest/Spread
 
@@ -37,3 +39,25 @@ const grupoFinal = ['Maria', 'Rafaela', ...grupoA];
 console.log(grupoFinal);
 // ['Maria','Rafaela', 'João', 'Pedro', 'Gloria']
 ```
+
+# Tagged template
+
+Processa o template string dentro de uma função
+
+```js
+function tag(partes, ...valores) {
+  console.log(partes);
+  console.log(valores);
+  return 'Outra string';
+}
+
+const aluno = 'Gui';
+const situacao = 'Aprovado';
+
+console.log(tag`${aluno} está ${situacao}.`);
+// [ '', ' está ', '.' ]
+// [ 'Gui', 'Aprovado' ]
+// Outra string
+```
+
+# Tagged template #02

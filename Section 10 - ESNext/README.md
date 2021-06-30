@@ -9,6 +9,8 @@
 
 # Operador Rest/Spread
 
+[_voltar ao índice_](#índice)
+
 Operador `...` rest(juntar)/spread(espalhar)
 
 Usar rest com parâmetro de função
@@ -44,6 +46,8 @@ console.log(grupoFinal);
 
 # Tagged template
 
+[_voltar ao índice_](#índice)
+
 Processa o template string dentro de uma função
 
 ```js
@@ -63,6 +67,8 @@ console.log(tag`${aluno} está ${situacao}.`);
 ```
 
 # Tagged template #02
+
+[_voltar ao índice_](#índice)
 
 Processa o template string dentro de uma função
 
@@ -86,6 +92,8 @@ console.log(real`1x de ${preco} ou 3x de ${precoParcela}.`);
 ```
 
 # Map
+
+[_voltar ao índice_](#índice)
 
 Estrutura chave-valor que não permite repetições de chaves, porém permite qualquer atributo como chave
 
@@ -125,6 +133,8 @@ console.log(chavesVariadas.size);
 ```
 
 # Set
+
+[_voltar ao índice_](#índice)
 
 Estrutura de conjunto não indexada e que não aceita repetição
 
